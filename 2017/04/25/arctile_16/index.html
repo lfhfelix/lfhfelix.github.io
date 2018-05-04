@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://onethree.cn">
-  <title>Tag: 技术 | 李飞虎的博客</title>
+  <title>Linux 目录结构：/lib 分析 | 李飞虎的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="李飞虎的博客-记录生活的点点滴滴">
-<meta property="og:type" content="website">
-<meta property="og:title" content="李飞虎的博客">
-<meta property="og:url" content="http://onethree.cn/tags/技术/index.html">
+  <meta name="description" content="原文出处： Surendra Anne   我们在之前的文章中已经分析了其他重要系统目录，比如 /bin、/boot、/dev、 /etc 等。可以根据自己的兴趣进入下列链接了解更多信息。本文中，让我们来看看 /lib 目录都有些什么。  目录结构分析：/bin 文件夹 目录结构分析：/boot 文件夹 目录结构分析：/dev 文件夹 目录结构分析：/etc 文件夹 目录结构分析：/lost+fo">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 目录结构：&#x2F;lib 分析">
+<meta property="og:url" content="http://onethree.cn/2017/04/25/arctile_16/index.html">
 <meta property="og:site_name" content="李飞虎的博客">
-<meta property="og:description" content="李飞虎的博客-记录生活的点点滴滴">
+<meta property="og:description" content="原文出处： Surendra Anne   我们在之前的文章中已经分析了其他重要系统目录，比如 /bin、/boot、/dev、 /etc 等。可以根据自己的兴趣进入下列链接了解更多信息。本文中，让我们来看看 /lib 目录都有些什么。  目录结构分析：/bin 文件夹 目录结构分析：/boot 文件夹 目录结构分析：/dev 文件夹 目录结构分析：/etc 文件夹 目录结构分析：/lost+fo">
+<meta property="og:updated_time" content="2018-05-04T02:08:43.121Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="李飞虎的博客">
-<meta name="twitter:description" content="李飞虎的博客-记录生活的点点滴滴">
+<meta name="twitter:title" content="Linux 目录结构：&#x2F;lib 分析">
+<meta name="twitter:description" content="原文出处： Surendra Anne   我们在之前的文章中已经分析了其他重要系统目录，比如 /bin、/boot、/dev、 /etc 等。可以根据自己的兴趣进入下列链接了解更多信息。本文中，让我们来看看 /lib 目录都有些什么。  目录结构分析：/bin 文件夹 目录结构分析：/boot 文件夹 目录结构分析：/dev 文件夹 目录结构分析：/etc 文件夹 目录结构分析：/lost+fo">
   
     <link rel="alternative" href="/atom.xml" title="李飞虎的博客" type="application/atom+xml">
   
@@ -168,72 +170,216 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-arctile_16" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/12/arctile_17/" class="archive-article-date">
-  	<time datetime="2017-04-12T13:23:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-12</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/12/arctile_17/">如何识别人的技术能力和水平？</a>
+    <h1 class="article-title" itemprop="name">
+      Linux 目录结构：/lib 分析
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/04/25/arctile_16/" class="archive-article-date">
+  	<time datetime="2017-04-25T03:23:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>原文出处： <a href="https://www.linuxnix.com/linux-directory-structure-lib-explained/" target="_blank" rel="noopener">Surendra Anne</a>  </p>
+<p>我们在之前的文章中已经分析了其他重要系统目录，比如 <code>/bin</code>、<code>/boot</code>、<code>/dev</code>、 <code>/etc</code> 等。可以根据自己的兴趣进入下列链接了解更多信息。本文中，让我们来看看 <code>/lib</code> 目录都有些什么。</p>
+<ul>
+<li><a href="https://www.linuxnix.com/linux-directory-structure-explained-bin-folder/" target="_blank" rel="noopener">目录结构分析：/bin 文件夹</a></li>
+<li><a href="https://www.linuxnix.com/linux-directory-structure-explained-boot-folder/" target="_blank" rel="noopener">目录结构分析：/boot 文件夹</a></li>
+<li><a href="https://www.linuxnix.com/linux-directory-structure-explained-dev-folder/" target="_blank" rel="noopener">目录结构分析：/dev 文件夹</a></li>
+<li><a href="https://www.linuxnix.com/linux-directory-structure-explainedetc-folder/" target="_blank" rel="noopener">目录结构分析：/etc 文件夹</a></li>
+<li><a href="https://www.linuxnix.com/lostfound-directory-linuxunix/" target="_blank" rel="noopener">目录结构分析：/lost+found 文件夹</a></li>
+<li><a href="https://www.linuxnix.com/linux-directory-structure-home-root-folders/" target="_blank" rel="noopener">目录结构分析：/home 文件夹</a></li>
+</ul>
+<a id="more"></a>
+<h3 id="Linux-中，-lib-文件夹是什么？"><a href="#Linux-中，-lib-文件夹是什么？" class="headerlink" title="Linux 中，/lib 文件夹是什么？"></a>Linux 中，/lib 文件夹是什么？</h3><p><code>/lib</code> 文件夹是 <strong>库文件目录</strong> ，包含了所有对系统有用的库文件。简单来说，它是应用程序、命令或进程正确执行所需要的文件。在 <code>/bin</code> 或 <code>/sbin</code> 目录中的命令的动态库文件正是在此目录中。内核模块同样也在这里。</p>
+<p>以 <code>pwd</code> 命令执行为例。执行它需要调用一些库文件。让我们来探索一下 <code>pwd</code> 命令执行时都发生了什么。我们需要使用 <a href="https://www.linuxnix.com/10-strace-command-examples-linuxunix/" target="_blank" rel="noopener">strace 命令</a> 找出调用的库文件。</p>
+<p>示例：</p>
+<p><code>root@linuxnix:~# strace -e open pwd</code><br><code>open(&quot;/etc/ld.so.cache&quot;, O_RDONLY|O_CLOEXEC) = 3</code><br><code>open(&quot;/lib/x86_64-linux-gnu/libc.so.6&quot;, O_RDONLY|O_CLOEXEC) = 3</code><br><code>open(&quot;/usr/lib/locale/locale-archive&quot;, O_RDONLY|O_CLOEXEC) = 3</code><br><code>/root</code><br><code>+++ exited with 0 +++</code><br><code>root@linuxnix:~#</code> </p>
+<p>如果你注意到的话，会发现我们使用的 <code>pwd</code> 命令的执行需要调用两个库文件。</p>
+<h3 id="Linux-中-lib-文件夹内部信息"><a href="#Linux-中-lib-文件夹内部信息" class="headerlink" title="Linux 中 /lib 文件夹内部信息"></a>Linux 中 /lib 文件夹内部信息</h3><p>正如之前所说，这个文件夹包含了目标文件和一些库文件，如果能了解这个文件夹的一些重要子文件，想必是极好的。下面列举的内容是基于我自己的系统，对于你的来说，可能会有所不同。</p>
+<p><code>root@linuxnix:/lib# find . -maxdepth 1  -type d</code><br><code>./firmware</code><br><code>./modprobe.d</code><br><code>./xtables</code><br><code>./apparmor</code><br><code>./terminfo</code><br><code>./plymouth</code><br><code>./init</code><br><code>./lsb</code><br><code>./recovery-mode</code><br><code>./resolvconf</code><br><code>./crda</code><br><code>./modules</code><br><code>./hdparm</code><br><code>./udev</code><br><code>./ufw</code><br><code>./ifupdown</code><br><code>./systemd</code><br><code>./modules-load.d</code></p>
+<p><code>/lib/firmware</code> – 这个文件夹包含了一些硬件、固件Firmware代码。</p>
+<blockquote>
+<p><strong>硬件和固件之间有什么不同？</strong></p>
+<p>为了使硬件正常运行，很多设备软件由两部分软件组成。加载到实际硬件的代码部分就是固件，用于在固件和内核之间通讯的软件被称为驱动程序。这样一来，内核就可以直接与硬件通讯，并确保硬件完成内核指派的工作。</p>
+</blockquote>
+<p><code>/lib/modprobe.d</code> – modprobe 命令的配置目录。</p>
+<p><code>/lib/modules</code> – 所有的可加载内核模块都存储在这个目录下。如果你有多个内核，你会在这个目录下看到代表美国内核的目录。</p>
+<p><code>/lib/hdparm</code> – 包含 SATA/IDE 硬盘正确运行的参数。</p>
+<p><code>/lib/udev</code> – 用户空间 /dev 是 Linux 内核设备管理器。这个文件夹包含了所有的 udev 相关的文件和文件夹，例如 <code>rules.d</code> 包含了 udev 规范文件。</p>
+<h3 id="lib-的姊妹文件夹：-lib32-和-lib64"><a href="#lib-的姊妹文件夹：-lib32-和-lib64" class="headerlink" title="/lib 的姊妹文件夹：/lib32 和 /lib64"></a>/lib 的姊妹文件夹：/lib32 和 /lib64</h3><p>这两个文件夹包含了特殊结构的库文件。它们几乎和 <code>/lib</code> 文件夹一样，除了架构级别的差异。</p>
+<h3 id="Linux-其他的库文件"><a href="#Linux-其他的库文件" class="headerlink" title="Linux 其他的库文件"></a>Linux 其他的库文件</h3><p><code>/usr/lib</code> – 所有软件的库都安装在这里。但是不包含系统默认库文件和内核库文件。</p>
+<p><code>/usr/local/lib</code> – 放置额外的系统文件。这些库能够用于各种应用。</p>
+<p><code>/var/lib</code> – 存储动态数据的库和文件，例如 rpm/dpkg 数据和游戏记录。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://on58zs7e5.bkt.clouddn.com/zfb.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://on58zs7e5.bkt.clouddn.com/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">职场</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">能力</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://onethree.cn/2017/04/25/arctile_16/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/04/18/arctile_18/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          你在抖音刷段子，我在网易云看情话
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/04/12/arctile_17/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">如何识别人的技术能力和水平？</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="arctile_16" data-title="Linux 目录结构：/lib 分析" data-url="http://onethree.cn/2017/04/25/arctile_16/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"lfhfelix"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
 
-    
+
 
 
           </div>
@@ -256,9 +402,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
