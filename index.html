@@ -170,6 +170,95 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-arctile_20" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/21/arctile_20/">sshpass远程免密码登陆linux</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/21/arctile_20/" class="archive-article-date">
+  	<time datetime="2018-07-21T07:12:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###背景<br>在Linux后台中，经常会用到ssh、scp等命令。需要进行认证，手动输入密码，是交互式的过程。<br>当将ssh、scp等命令做成自动化脚本时，可能需要非交互式的登录过程，此时可以用sshpass。</p>
+<p>###使用举例<br>   使用-p参数指定登录密码</p>
+<pre><code>免密码登录
+$ sshpass -p password ssh username@host
+
+远程执行命令
+$ sshpass -p password ssh username@host &lt;cmd&gt;
+
+通过scp上传文件
+$ sshpass -p password scp local_file root@host:remote_file 
+
+通过scp下载文件
+$ sshpass -p password scp root@host:remote_file local_file
+</code></pre><p>###忽略RSA Key检查信息<br>第一次认证时，一般会有RSA key检查的提示：</p>
+<p><code>The authenticity of host ’10.x.x.x (10.x.x.x)&#39; can&#39;t be established.
+RSA key fingerprint is a4:eb:8c:7d:2a:ef:d6:1c:a3:0c:e8:e5:00:d2:eb:60.
+Are you sure you want to continue connecting (yes/no)?</code><br>可以使用<code>-o StrictHostKeychecking=no</code>选项来忽略key检查信息。<br>如：<br><code>sshpass -p &quot;$SSH_PASSWD&quot; ssh root@&quot;$host&quot; -o StrictHostKeyChecking=no &quot;$@&quot; 2&gt;/dev/null</code></p>
+<p>###其他方式输入密码<br>sshpass支持从文件中导入密码或者从环境变量中导入密码，使用举例：</p>
+<pre><code>从文件读取密码
+$&gt;　echo &quot;password&quot; &gt; userpasswd
+$&gt; sshpass -f userpasswd ssh username@x.x.x.x
+从环境变量获取密码
+$&gt; export SSHPASS=&quot;password&quot;
+$&gt; sshpass -e ssh username@x.x.x.x 
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssh</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/21/arctile_20/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-arctile_19" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -673,70 +762,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-arctile_11" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/18/arctile_11/">编程能力与编程年龄</a>
-    </h1>
-  
-
-        
-        <a href="/2017/03/18/arctile_11/" class="archive-article-date">
-  	<time datetime="2017-03-18T10:08:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>程序员这个职业究竟可以干多少年，在中国这片神奇的土地上，很多人都说只能干到30岁，然后就需要转型，就像《<a href="http://coolshell.cn/articles/4990.html" target="_blank" rel="noopener">程序员技术练级攻略</a>》这篇文章很多人回复到这种玩法会玩死人的一样。我在很多面试中，问到应聘者未来的规划都能听到好些应聘都说程序员是个青春饭。因为，大多数程序员都认为，编程这个事只能干到30岁，最多35岁吧。每每我听到这样的言论，都让我感到相当的无语，大家都希望能像《<a href="http://coolshell.cn/articles/2250.html" target="_blank" rel="noopener">21天速成C++</a>》那样速成，好多时候超级有想和他们争论的冲动，但后来想想算了，因为<strong>你无法帮助那些只想呆在井底思维封闭而且想走捷径速成的人</strong>。</p>
-        
-          <a class="article-more-a" href="/2017/03/18/arctile_11/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/03/18/arctile_11/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -860,11 +885,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color2">google</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">logo</a>
+                <a href="javascript:void(0)" class="js-tag color5">stack overflow</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -876,11 +901,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">google</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">stack overflow</a>
+                <a href="javascript:void(0)" class="js-tag color5">logo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -904,14 +929,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">情话</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">网易云</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vim</a>
               </li>
              
@@ -920,7 +937,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">情话</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">网易云</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -928,11 +957,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">repo</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">repo</a>
               </li>
             
             <div class="clearfix"></div>
