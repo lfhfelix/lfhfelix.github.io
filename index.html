@@ -190,31 +190,10 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###背景<br>在Linux后台中，经常会用到ssh、scp等命令。需要进行认证，手动输入密码，是交互式的过程。<br>当将ssh、scp等命令做成自动化脚本时，可能需要非交互式的登录过程，此时可以用sshpass。</p>
-<p>###使用举例<br>   使用-p参数指定登录密码</p>
-<pre><code>免密码登录
-$ sshpass -p password ssh username@host
-
-远程执行命令
-$ sshpass -p password ssh username@host &lt;cmd&gt;
-
-通过scp上传文件
-$ sshpass -p password scp local_file root@host:remote_file 
-
-通过scp下载文件
-$ sshpass -p password scp root@host:remote_file local_file
-</code></pre><p>###忽略RSA Key检查信息<br>第一次认证时，一般会有RSA key检查的提示：</p>
-<p><code>The authenticity of host ’10.x.x.x (10.x.x.x)&#39; can&#39;t be established.
-RSA key fingerprint is a4:eb:8c:7d:2a:ef:d6:1c:a3:0c:e8:e5:00:d2:eb:60.
-Are you sure you want to continue connecting (yes/no)?</code><br>可以使用<code>-o StrictHostKeychecking=no</code>选项来忽略key检查信息。<br>如：<br><code>sshpass -p &quot;$SSH_PASSWD&quot; ssh root@&quot;$host&quot; -o StrictHostKeyChecking=no &quot;$@&quot; 2&gt;/dev/null</code></p>
-<p>###其他方式输入密码<br>sshpass支持从文件中导入密码或者从环境变量中导入密码，使用举例：</p>
-<pre><code>从文件读取密码
-$&gt;　echo &quot;password&quot; &gt; userpasswd
-$&gt; sshpass -f userpasswd ssh username@x.x.x.x
-从环境变量获取密码
-$&gt; export SSHPASS=&quot;password&quot;
-$&gt; sshpass -e ssh username@x.x.x.x 
-</code></pre>
+        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>在Linux后台中，经常会用到ssh、scp等命令。需要进行认证，手动输入密码，是交互式的过程。<br>当将ssh、scp等命令做成自动化脚本时，可能需要非交互式的登录过程，此时可以用sshpass。</p>
+        
+          <a class="article-more-a" href="/2018/07/21/arctile_20/#more">more >></a>
+        
       
 
       
@@ -893,19 +872,19 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">coding</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">logo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">coding</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -929,14 +908,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">情话</a>
               </li>
              
@@ -949,6 +920,14 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ssh</a>
               </li>
              
@@ -957,11 +936,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">repo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">repo</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
             
             <div class="clearfix"></div>
