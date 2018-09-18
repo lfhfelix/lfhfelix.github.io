@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="李飞虎的博客">
 <meta property="og:description" content="当没有插件管理器时，Vim 用户必须手动下载 tarball 包形式的插件，并将它们解压到 ~/.vim 目录中。在少量插件的时候可以。但当他们安装更多的插件时，就会变得一团糟。所有插件文件分散在单个目录中，用户无法找到哪个文件属于哪个插件。此外，他们无法找到他们应该删除哪个文件来卸载插件。这时 Vim 插件管理器就可以派上用场。插件管理器将安装插件的文件保存在单独的目录中，因此管理所有插件变得非">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5316607-1cc44c0f4fdc3100.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-06-22T09:25:22.382Z">
+<meta property="og:updated_time" content="2018-06-22T09:30:17.972Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vim-plug：极简 Vim 插件管理器">
 <meta name="twitter:description" content="当没有插件管理器时，Vim 用户必须手动下载 tarball 包形式的插件，并将它们解压到 ~/.vim 目录中。在少量插件的时候可以。但当他们安装更多的插件时，就会变得一团糟。所有插件文件分散在单个目录中，用户无法找到哪个文件属于哪个插件。此外，他们无法找到他们应该删除哪个文件来卸载插件。这时 Vim 插件管理器就可以派上用场。插件管理器将安装插件的文件保存在单独的目录中，因此管理所有插件变得非">
@@ -193,7 +193,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="https://upload-images.jianshu.io/upload_images/5316607-1cc44c0f4fdc3100.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Vim-plug"><br>当没有插件管理器时，Vim 用户必须手动下载 tarball 包形式的插件，并将它们解压到 <code>~/.vim</code> 目录中。在少量插件的时候可以。但当他们安装更多的插件时，就会变得一团糟。所有插件文件分散在单个目录中，用户无法找到哪个文件属于哪个插件。此外，他们无法找到他们应该删除哪个文件来卸载插件。这时 Vim 插件管理器就可以派上用场。插件管理器将安装插件的文件保存在单独的目录中，因此管理所有插件变得非常容易。我们几个月前已经写了关于 <a href="https://linux.cn/article-9416-1.html" target="_blank" rel="noopener">Vundle</a> 的文章。今天，我们将看到又一个名为 “Vim-plug” 的 Vim 插件管理器。<br><a id="more"></a><br>Vim-plug 是一个自由、开源、速度非常快的、极简的 vim 插件管理器。它可以并行地安装或更新插件。你还可以回滚更新。它创建浅层克隆shallow clone最小化磁盘空间使用和下载时间。它支持按需加载插件以加快启动时间。其他值得注意的特性是支持分支/标签/提交、post-update 钩子、支持外部管理的插件等。</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>安装和使用起来非常容易。你只需打开终端并运行以下命令：<br><figure class="highlight plain"><figcaption><span>curl  -fLo  ~/.vim/autoload/plug.vim  --create-dirs</span><a href="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim```" target="_blank" rel="noopener">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Neovim 用户可以使用以下命令安装 Vim-plug：</span><br><span class="line">```$  curl  -fLo  ~/.config/nvim/autoload/plug.vim  --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</span><br></pre></td></tr></table></figure></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>安装和使用起来非常容易。你只需打开终端并运行以下命令：<br><figure class="highlight plain"><figcaption><span>curl  -fLo  ~/.vim/autoload/plug.vim  --create-dirs</span><a href="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim```" target="_blank" rel="noopener">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Neovim 用户可以使用以下命令安装 Vim-plug：</span><br><span class="line">```$  curl  -fLo  ~/.config/nvim/autoload/plug.vim  --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</span><br></pre></td></tr></table></figure></p>
 <h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><h4 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h4><p>要安装插件，你必须如下所示首先在 Vim 配置文件中声明它们。一般 Vim 的配置文件是 <code>~/.vimrc</code>，Neovim 的配置文件是 <code>~/.config/nvim/init.vim</code>。请记住，当你在配置文件中声明插件时，列表应该以 <code>call plug#begin(PLUGIN_DIRECTORY)</code> 开始，并以 <code>plug#end()</code> 结束。</p>
 <p>例如，我们安装 “lightline.vim” 插件。为此，请在 <code>~/.vimrc</code> 的顶部添加以下行。<br><figure class="highlight plain"><figcaption><span>plug#begin('~/.vim/plugged')```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">```Plug  &apos;itchyny/lightline.vim&apos;</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><figcaption><span>plug#end()```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在 vim 配置文件中添加上面的行后，通过输入以下命令重新加载：</span><br><span class="line">```:source  ~/.vimrc</span><br></pre></td></tr></table></figure>
@@ -441,11 +441,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">sublime</a>
+                <a href="javascript:void(0)" class="js-tag color2">google</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
+                <a href="javascript:void(0)" class="js-tag color5">stack overflow</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -457,11 +457,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">google</a>
+                <a href="javascript:void(0)" class="js-tag color3">sublime</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">stack overflow</a>
+                <a href="javascript:void(0)" class="js-tag color4">IDE</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -485,11 +485,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">情话</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">网易云</a>
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -517,7 +513,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+                <a href="javascript:void(0)" class="js-tag color3">情话</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">网易云</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -525,11 +525,11 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
             
             <div class="clearfix"></div>
