@@ -6,17 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://onethree.cn">
-  <title>Tag: 插件 | 李飞虎的博客</title>
+  <title>Vim-plug：极简 Vim 插件管理器 | 李飞虎的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="李飞虎的博客-记录生活的点点滴滴">
-<meta property="og:type" content="website">
-<meta property="og:title" content="李飞虎的博客">
-<meta property="og:url" content="http://onethree.cn/tags/插件/index.html">
+  <meta name="description" content="当没有插件管理器时，Vim 用户必须手动下载 tarball 包形式的插件，并将它们解压到 ~/.vim 目录中。在少量插件的时候可以。但当他们安装更多的插件时，就会变得一团糟。所有插件文件分散在单个目录中，用户无法找到哪个文件属于哪个插件。此外，他们无法找到他们应该删除哪个文件来卸载插件。这时 Vim 插件管理器就可以派上用场。插件管理器将安装插件的文件保存在单独的目录中，因此管理所有插件变得非">
+<meta name="keywords" content="Vim,插件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vim-plug：极简 Vim 插件管理器">
+<meta property="og:url" content="http://onethree.cn/2019/01/22/arctile_19/index.html">
 <meta property="og:site_name" content="李飞虎的博客">
-<meta property="og:description" content="李飞虎的博客-记录生活的点点滴滴">
+<meta property="og:description" content="当没有插件管理器时，Vim 用户必须手动下载 tarball 包形式的插件，并将它们解压到 ~/.vim 目录中。在少量插件的时候可以。但当他们安装更多的插件时，就会变得一团糟。所有插件文件分散在单个目录中，用户无法找到哪个文件属于哪个插件。此外，他们无法找到他们应该删除哪个文件来卸载插件。这时 Vim 插件管理器就可以派上用场。插件管理器将安装插件的文件保存在单独的目录中，因此管理所有插件变得非">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5316607-1cc44c0f4fdc3100.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-10-10T04:37:28.289Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="李飞虎的博客">
-<meta name="twitter:description" content="李飞虎的博客-记录生活的点点滴滴">
+<meta name="twitter:title" content="Vim-plug：极简 Vim 插件管理器">
+<meta name="twitter:description" content="当没有插件管理器时，Vim 用户必须手动下载 tarball 包形式的插件，并将它们解压到 ~/.vim 目录中。在少量插件的时候可以。但当他们安装更多的插件时，就会变得一团糟。所有插件文件分散在单个目录中，用户无法找到哪个文件属于哪个插件。此外，他们无法找到他们应该删除哪个文件来卸载插件。这时 Vim 插件管理器就可以派上用场。插件管理器将安装插件的文件保存在单独的目录中，因此管理所有插件变得非">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/5316607-1cc44c0f4fdc3100.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="李飞虎的博客" type="application/atom+xml">
   
@@ -168,36 +172,76 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-arctile_19" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/01/22/arctile_19/" class="archive-article-date">
-  	<time datetime="2019-01-22T04:12:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/22/arctile_19/">Vim-plug：极简 Vim 插件管理器</a>
+    <h1 class="article-title" itemprop="name">
+      Vim-plug：极简 Vim 插件管理器
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/01/22/arctile_19/" class="archive-article-date">
+  	<time datetime="2019-01-22T04:12:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://upload-images.jianshu.io/upload_images/5316607-1cc44c0f4fdc3100.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Vim-plug"><br>当没有插件管理器时，Vim 用户必须手动下载 tarball 包形式的插件，并将它们解压到 <code>~/.vim</code> 目录中。在少量插件的时候可以。但当他们安装更多的插件时，就会变得一团糟。所有插件文件分散在单个目录中，用户无法找到哪个文件属于哪个插件。此外，他们无法找到他们应该删除哪个文件来卸载插件。这时 Vim 插件管理器就可以派上用场。插件管理器将安装插件的文件保存在单独的目录中，因此管理所有插件变得非常容易。我们几个月前已经写了关于 <a href="https://linux.cn/article-9416-1.html" target="_blank" rel="noopener">Vundle</a> 的文章。今天，我们将看到又一个名为 “Vim-plug” 的 Vim 插件管理器。<br><a id="more"></a><br>Vim-plug 是一个自由、开源、速度非常快的、极简的 vim 插件管理器。它可以并行地安装或更新插件。你还可以回滚更新。它创建浅层克隆shallow clone最小化磁盘空间使用和下载时间。它支持按需加载插件以加快启动时间。其他值得注意的特性是支持分支/标签/提交、post-update 钩子、支持外部管理的插件等。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>安装和使用起来非常容易。你只需打开终端并运行以下命令：<br><figure class="highlight plain"><figcaption><span>curl  -fLo  ~/.vim/autoload/plug.vim  --create-dirs</span><a href="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim```" target="_blank" rel="noopener">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Neovim 用户可以使用以下命令安装 Vim-plug：</span><br><span class="line">```$  curl  -fLo  ~/.config/nvim/autoload/plug.vim  --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</span><br></pre></td></tr></table></figure></p>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><h4 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h4><p>要安装插件，你必须如下所示首先在 Vim 配置文件中声明它们。一般 Vim 的配置文件是 <code>~/.vimrc</code>，Neovim 的配置文件是 <code>~/.config/nvim/init.vim</code>。请记住，当你在配置文件中声明插件时，列表应该以 <code>call plug#begin(PLUGIN_DIRECTORY)</code> 开始，并以 <code>plug#end()</code> 结束。</p>
+<p>例如，我们安装 “lightline.vim” 插件。为此，请在 <code>~/.vimrc</code> 的顶部添加以下行。<br><figure class="highlight plain"><figcaption><span>plug#begin('~/.vim/plugged')```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">```Plug  &apos;itchyny/lightline.vim&apos;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><figcaption><span>plug#end()```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在 vim 配置文件中添加上面的行后，通过输入以下命令重新加载：</span><br><span class="line">```:source  ~/.vimrc</span><br></pre></td></tr></table></figure>
+<p>或者，只需重新加载 Vim 编辑器。<br>现在，打开 vim 编辑器：<br><figure class="highlight plain"><figcaption><span>vim```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">使用以下命令检查状态：</span><br><span class="line">```:PlugStatus</span><br></pre></td></tr></table></figure></p>
+<p>然后输入下面的命令，然后按回车键安装之前在配置文件中声明的插件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#### 更新插件</span><br><span class="line"></span><br><span class="line">要更新插件，请运行：</span><br><span class="line"></span><br><span class="line">```:PlugUpdate</span><br></pre></td></tr></table></figure></p>
+<p>更新插件后，按下 <code>d</code> 查看更改。或者，你可以之后输入 <code>:PlugDiff</code>。</p>
+<h4 id="审查插件"><a href="#审查插件" class="headerlink" title="审查插件"></a>审查插件</h4><p>有时，更新的插件可能有新的 bug 或无法正常工作。要解决这个问题，你可以简单地回滚有问题的插件。输入 <code>:PlugDiff</code> 命令，然后按回车键查看上次 <code>:PlugUpdate</code>的更改，并在每个段落上按 <code>X</code> 将每个插件回滚到更新前的前一个状态。</p>
+<h4 id="删除插件"><a href="#删除插件" class="headerlink" title="删除插件"></a>删除插件</h4><p>删除一个插件删除或注释掉你以前在你的 vim 配置文件中添加的 <code>plug</code> 命令。然后，运行 <code>:source ~/.vimrc</code> 或重启 Vim 编辑器。最后，运行以下命令卸载插件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">该命令将删除 vim 配置文件中所有未声明的插件。</span><br><span class="line"></span><br><span class="line">#### 升级 Vim-plug</span><br><span class="line"></span><br><span class="line">要升级vim-plug本身，请输入：</span><br><span class="line">```:PlugUpgrade</span><br></pre></td></tr></table></figure></p>
+<p>如你所见，使用 Vim-plug 管理插件并不难。它简化了插件管理。现在去找出你最喜欢的插件并使用 Vim-plug 来安装它们。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://on58zs7e5.bkt.clouddn.com/zfb.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://on58zs7e5.bkt.clouddn.com/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -213,19 +257,97 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://onethree.cn/2019/01/22/arctile_19/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/03/21/arctile_20/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          sshpass远程免密码登陆linux
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2018/04/18/arctile_18/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">你在抖音刷段子，我在网易云看情话</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -248,9 +370,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
