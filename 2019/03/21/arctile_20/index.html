@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://onethree.cn">
-  <title>Archives: 2018/7 | 李飞虎的博客</title>
+  <title>sshpass远程免密码登陆linux | 李飞虎的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="李飞虎的博客-记录生活的点点滴滴">
-<meta property="og:type" content="website">
-<meta property="og:title" content="李飞虎的博客">
-<meta property="og:url" content="http://onethree.cn/archives/2018/07/index.html">
+  <meta name="description" content="背景在Linux后台中，经常会用到ssh、scp等命令。需要进行认证，手动输入密码，是交互式的过程。当将ssh、scp等命令做成自动化脚本时，可能需要非交互式的登录过程，此时可以用sshpass。">
+<meta name="keywords" content="linux,ssh">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sshpass远程免密码登陆linux">
+<meta property="og:url" content="http://onethree.cn/2019/03/21/arctile_20/index.html">
 <meta property="og:site_name" content="李飞虎的博客">
-<meta property="og:description" content="李飞虎的博客-记录生活的点点滴滴">
+<meta property="og:description" content="背景在Linux后台中，经常会用到ssh、scp等命令。需要进行认证，手动输入密码，是交互式的过程。当将ssh、scp等命令做成自动化脚本时，可能需要非交互式的登录过程，此时可以用sshpass。">
+<meta property="og:updated_time" content="2019-10-10T01:32:46.608Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="李飞虎的博客">
-<meta name="twitter:description" content="李飞虎的博客-记录生活的点点滴滴">
+<meta name="twitter:title" content="sshpass远程免密码登陆linux">
+<meta name="twitter:description" content="背景在Linux后台中，经常会用到ssh、scp等命令。需要进行认证，手动输入密码，是交互式的过程。当将ssh、scp等命令做成自动化脚本时，可能需要非交互式的登录过程，此时可以用sshpass。">
   
     <link rel="alternative" href="/atom.xml" title="李飞虎的博客" type="application/atom+xml">
   
@@ -168,36 +170,90 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-arctile_20" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/21/arctile_20/" class="archive-article-date">
-  	<time datetime="2018-07-21T07:12:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-21</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/21/arctile_20/">sshpass远程免密码登陆linux</a>
+    <h1 class="article-title" itemprop="name">
+      sshpass远程免密码登陆linux
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/03/21/arctile_20/" class="archive-article-date">
+  	<time datetime="2019-03-21T07:12:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>在Linux后台中，经常会用到ssh、scp等命令。需要进行认证，手动输入密码，是交互式的过程。<br>当将ssh、scp等命令做成自动化脚本时，可能需要非交互式的登录过程，此时可以用sshpass。</p>
+<a id="more"></a>
+<h3 id="使用举例"><a href="#使用举例" class="headerlink" title="使用举例"></a>使用举例</h3><p>   使用-p参数指定登录密码</p>
+<pre><code>免密码登录
+$ sshpass -p password ssh username@host
+
+远程执行命令
+$ sshpass -p password ssh username@host &lt;cmd&gt;
+
+通过scp上传文件
+$ sshpass -p password scp local_file root@host:remote_file 
+
+通过scp下载文件
+$ sshpass -p password scp root@host:remote_file local_file
+</code></pre><h3 id="忽略RSA-Key检查信息"><a href="#忽略RSA-Key检查信息" class="headerlink" title="忽略RSA Key检查信息"></a>忽略RSA Key检查信息</h3><p>第一次认证时，一般会有RSA key检查的提示：</p>
+<p><code>The authenticity of host ’10.x.x.x (10.x.x.x)&#39; can&#39;t be established.
+RSA key fingerprint is a4:eb:8c:7d:2a:ef:d6:1c:a3:0c:e8:e5:00:d2:eb:60.
+Are you sure you want to continue connecting (yes/no)?</code><br>可以使用<code>-o StrictHostKeychecking=no</code>选项来忽略key检查信息。<br>如：<br><code>sshpass -p &quot;$SSH_PASSWD&quot; ssh root@&quot;$host&quot; -o StrictHostKeyChecking=no &quot;$@&quot; 2&gt;/dev/null</code></p>
+<h3 id="其他方式输入密码"><a href="#其他方式输入密码" class="headerlink" title="其他方式输入密码"></a>其他方式输入密码</h3><p>sshpass支持从文件中导入密码或者从环境变量中导入密码，使用举例：</p>
+<pre><code>从文件读取密码
+$&gt;　echo &quot;password&quot; &gt; userpasswd
+$&gt; sshpass -f userpasswd ssh username@x.x.x.x
+从环境变量获取密码
+$&gt; export SSHPASS=&quot;password&quot;
+$&gt; sshpass -e ssh username@x.x.x.x 
+</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://on58zs7e5.bkt.clouddn.com/zfb.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://on58zs7e5.bkt.clouddn.com/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -213,19 +269,88 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://onethree.cn/2019/03/21/arctile_20/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/06/22/arctile_19/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Vim-plug：极简 Vim 插件管理器</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -248,8 +373,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
@@ -324,15 +449,23 @@ var _hmt = _hmt || [];
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">google</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">stack overflow</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -360,22 +493,6 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vim</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂记</a>
               </li>
              
@@ -392,11 +509,31 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">JS</a>
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vim</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">情话</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">网易云</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -408,19 +545,7 @@ var _hmt = _hmt || [];
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">情话</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">网易云</a>
               </li>
             
             <div class="clearfix"></div>
